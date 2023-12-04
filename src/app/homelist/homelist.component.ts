@@ -71,6 +71,22 @@ import { Service } from '../service.service';
       }
     }
   
+    deleteUser(userId:any) {
+    {
+        this.service.deleteUser(userId).subscribe(
+          (deletedUser) => {
+            console.log(`user with id ${userId}deleted `);
+            
+            this.deletedUser = deletedUser;
+            this.tableData=this.tableData.filter((user)=>user.id !==userId);
+          },
+          (error) => {
+            console.error('Error deleted user:', error);
+          }
+        );
+      }
+    }
+  deletedUser:any| null=null;
   
   }
 

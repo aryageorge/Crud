@@ -30,6 +30,10 @@ import { Observable } from 'rxjs';
     createRecord(record: any): Observable<any> {
       return this.http.post(`${this.apiUrl}`, record);
     }
+    deleteUser(userId: any): Observable<any> {
+      const url = `${this.apiUrl}/${userId}`;
+      return this.http.get(url);
+    }
   }
  
 
